@@ -1,0 +1,12 @@
+bool isPrime(int n = -1) {
+    float rn = sqrt(n);
+    for(i = 2 ; <= rn) {
+        if(n% i!= 0) {
+            continue;
+        }
+        else {
+            return (false);
+        }
+    }
+    return (true);
+}

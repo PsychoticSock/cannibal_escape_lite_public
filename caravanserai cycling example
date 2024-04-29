@@ -1,0 +1,48 @@
+    int xsCaravanseraiBuilding = 255;
+    int xsCaravanseraiRange = 256;
+    int xsCaravanseraiSpeedUpPercentage = 257;
+    int xsCaravanseraiObjectType = 258;
+    int xsCaravanseraiSpeedUpEffectType = 259;
+    int xsCaravanseraiSpeedUp2ndEffectType = 260;
+    int xsCaravanseraiSpeedUp2ndEffectPercentage = 261;
+    int caravanserai = 1754;
+
+rule apply_caravanserai
+active
+highfrequency
+{
+    static int x = 0;
+    int current_counter = 0;
+    current_counter = x%6;
+    switch (current_counter) {
+        case 0: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cVillagerClass);
+        }
+        case 1: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cInfantryClass);
+        }
+        case 2: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cArcherClass);
+        }
+        case 3: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cCavalryClass);
+        }
+        case 4: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cSiegeWeaponClass);
+        }
+        case 5: {
+            xsSetPlayerAttribute(1, xsCaravanseraiObjectType, cHandCannoneerClass);
+        }
+
+    }
+    x++;
+}
+
+void main(){
+            xsSetPlayerAttribute(1, xsCaravanseraiSpeedUpPercentage, 10);
+            xsSetPlayerAttribute(1, xsCaravanseraiSpeedUpEffectType, 5);
+            xsSetPlayerAttribute(1, xsCaravanseraiRange, 20);
+            xsSetPlayerAttribute(1, xsCaravanseraiSpeedUp2ndEffectPercentage, 0.01);
+            xsSetPlayerAttribute(1, xsCaravanseraiBuilding, caravanserai);
+}
+
